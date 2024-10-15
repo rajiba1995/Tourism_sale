@@ -24,7 +24,7 @@ class AdminAuthController extends Controller
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             // Redirect to the admin dashboard if login successful
             return redirect()->route('admin.dashboard');
-        }
+        } 
 
         // Redirect back with error if login fails
         return back()->withErrors([

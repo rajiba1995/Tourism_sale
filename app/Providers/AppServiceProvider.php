@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Repositories\DesignationRepositoryInterface;
+use App\Repositories\DesignationRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(DesignationRepositoryInterface::class, DesignationRepository::class);
+
     }
 
     /**
