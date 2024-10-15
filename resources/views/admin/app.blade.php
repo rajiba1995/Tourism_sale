@@ -78,17 +78,31 @@
               <div class="badge badge-danger">new</div>
             </a>
           </li> 
+       
           <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.designation')}}">
-              <i class="typcn  menu-icon"></i>
-              <span class="menu-title">Designation</span>
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="typcn typcn-document-text menu-icon"></i>
+              <span class="menu-title">Employee Management</span>
+              <i class="menu-arrow"></i>
             </a>
-          </li> 
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('admin.employee')}}">
-              <i class="typcn  menu-icon"></i>
-              <span class="menu-title">Employee</span>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.designation')}}">Designation</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.employee')}}"> Employee </a></li>
+              </ul>
+            </div>
+            <li class="nav-item">
+            <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="typcn typcn-document-text menu-icon"></i>
+              <span class="menu-title">Hotel Management</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.hotelCategory')}}">Category</a></li>
+                <!-- <li class="nav-item"> <a class="nav-link" href="{{route('admin.employee')}}"> Employee </a></li> -->
+              </ul>
+            </div>
           </li>         
           <li class="nav-item">
             <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">

@@ -27,28 +27,39 @@ class EmployeeRepository implements EmployeeRepositoryInterface
     public function create(array $data)
     {
         $data['password'] = Hash::make($data['password']);
+        
         if (isset($data['image'])) {
-            $data['image'] = $this->uploadImage($data['image']);
+            $timestamp = time(); 
+            $extension = $data['image']->getClientOriginalExtension(); 
+            $imageName = $timestamp . '.' . $extension; 
+            $data['image'] = $this->uploadImage($data['image'], $imageName); 
         }
+    
         return $this->model->create($data);
     }
+    
 
     public function update($id, array $data)
     {
         $employee = $this->getById($id);
+        
         if (isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
         } else {
-            unset($data['password']);
+            unset($data['password']); 
         }
 
         if (isset($data['image'])) {
-            $data['image'] = $this->uploadImage($data['image']);
+            $timestamp = time(); 
+            $extension = $data['image']->getClientOriginalExtension(); 
+            $imageName = 'employee_' . $timestamp . '.' . $extension;
+            $data['image'] = $this->uploadImage($data['image'], $imageName); 
         }
 
         $employee->update($data);
         return $employee;
     }
+
 
     public function delete($id)
     {

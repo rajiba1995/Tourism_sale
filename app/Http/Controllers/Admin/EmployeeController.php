@@ -38,7 +38,7 @@ class EmployeeController extends Controller
             'designation_id' => 'required|exists:designations,id',
             'password' => 'required|string|min:6',
             'status' => 'required|boolean',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $this->employeeRepository->create($request->all());

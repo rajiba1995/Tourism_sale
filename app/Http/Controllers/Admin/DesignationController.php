@@ -37,7 +37,7 @@ class DesignationController extends Controller
     {
         $request->validate([
             'title' => 'required|string|max:255',
-            // 'status' => 'required|boolean',
+            'status' => 'required|boolean',
         ]);
 
         $this->designationRepository->create($request->all());

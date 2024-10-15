@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\DesignationController;
 use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\HotelCategoryController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -37,6 +38,14 @@ Route::prefix('admin')->group(function () {
         Route::put('/employee/update/{id}', [EmployeeController::class, 'update'])->name('admin.employee.update');
         Route::get('/employee/destroy/{id}', [EmployeeController::class, 'destroy'])->name('admin.employee.destroy');
 
+
+        Route::get('/hotelCategory', [HotelCategoryController::class, 'index'])->name('admin.hotelCategory');
+        Route::get('/hotelCategory/create', [HotelCategoryController::class, 'create'])->name('admin.hotelCategory.create');
+        Route::post('/hotelCategory/store', [HotelCategoryController::class, 'store'])->name('admin.hotelCategory.store');
+        
+        Route::get('/hotelCategory/edit/{id}', [HotelCategoryController::class, 'edit'])->name('admin.hotelCategory.edit');
+        Route::put('/hotelCategory/update/{id}', [HotelCategoryController::class, 'update'])->name('admin.hotelCategory.update');
+        Route::get('/hotelCategory/destroy/{id}', [HotelCategoryController::class, 'destroy'])->name('admin.hotelCategory.destroy');
         // Route::get('/dashboard', function () {
         //     return view('admin.dashboard'); // Admin dashboard view
         // })->name('admin.dashboard');

@@ -11,12 +11,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Edit Designation
-                            <a href="{{ url('admin/designation') }}" class="btn btn-danger float-end">Back</a>
+                        <h4>Edit Hotel Category
+                            <a href="{{ url('admin/hotelCategory') }}" class="btn btn-danger float-end">Back</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="{{ url('admin/designation/update/'.$data->id) }}" method="POST">
+                        <form action="{{ url('admin/hotelCategory/update/'.$data->id) }}" method="POST">
                             @csrf
                             @method('PUT')
 

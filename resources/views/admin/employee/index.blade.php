@@ -15,8 +15,8 @@
 
                 <div class="card mt-3">
                     <div class="card-header">
-                        <h4>Designation
-                            <a href="{{ route('admin.employee.create') }}" class="btn btn-primary float-end">Add Designation</a>
+                        <h4>Employee
+                            <a href="{{ route('admin.employee.create') }}" class="btn btn-primary float-end">Add Employee</a>
                         </h4>
                     </div>
                     <div class="card-body">

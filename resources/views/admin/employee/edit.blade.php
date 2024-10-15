@@ -9,16 +9,28 @@
 
         <div class="mb-3">
             <label for="name">Employee Name</label>
-            <input type="text" name="name" value="{{ $employee->name }}" class="form-control" />
+            <input type="text" name="name" value="{{ old('name', $employee->name) }}" class="form-control" />
+            @error('name')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="phone">Phone Number</label>
-            <input type="text" name="phone" value="{{ $employee->phone }}" class="form-control" />
+            <input type="text" name="phone" value="{{ old('phone', $employee->phone) }}" class="form-control" />
+            @error('phone')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="email">Email ID</label>
-            <input type="email" name="email" value="{{ $employee->email }}" class="form-control" />
+            <input type="email" name="email" value="{{ old('email', $employee->email) }}" class="form-control" />
+            @error('email')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="designation_id">Designation</label>
             <select name="designation_id" class="form-control">
@@ -28,11 +40,19 @@
                     </option>
                 @endforeach
             </select>
+            @error('designation_id')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="password">Password (Leave blank if not changing)</label>
             <input type="password" name="password" class="form-control" />
+            @error('password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="image">Image</label>
             @if($employee->image)
@@ -41,14 +61,22 @@
                 </div>
             @endif
             <input type="file" name="image" class="form-control" />
+            @error('image')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <div class="mb-3">
             <label for="status">Status</label>
             <select name="status" class="form-control">
                 <option value="1" {{ $employee->status ? 'selected' : '' }}>Active</option>
                 <option value="0" {{ !$employee->status ? 'selected' : '' }}>Inactive</option>
             </select>
+            @error('status')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
         </div>
+
         <button type="submit" class="btn btn-primary">Update</button>
     </form>
 </div>

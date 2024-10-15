@@ -11,17 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('employees', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('phone');
-            $table->string('email')->unique();
-            $table->foreignId('designation_id')->constrained('designations');
-            $table->string('password');
-            $table->string('image')->nullable();
-            $table->boolean('status')->default(1); // 1 = Active, 0 = Inactive
-            $table->timestamps();
-        });
+        {
+            Schema::create('employees', function (Blueprint $table) {
+                $table->id();
+                $table->string('employee_id')->unique(); // Make it unique to avoid duplicates
+                $table->string('name');
+                $table->string('phone');
+                $table->string('email')->unique();
+                $table->foreignId('designation_id')->constrained('designations');
+                $table->string('password');
+                $table->string('image')->nullable();
+                $table->boolean('status')->default(1); // 1 = Active, 0 = Inactive
+                $table->timestamps();
+            });
+        }
     }
 
     /**

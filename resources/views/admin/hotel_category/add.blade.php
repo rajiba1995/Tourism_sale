@@ -10,12 +10,12 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Create Designation
-                        <a href="{{ url('designation') }}" class="btn btn-danger float-end">Back</a>
+                    <h4>Create Hotel Category
+                        <a href="{{ url('admin/hotelCategory') }}" class="btn btn-danger float-end">Back</a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('admin/designation/store') }}" method="POST">
+                    <form action="{{ url('admin/hotelCategory/store') }}" method="POST">
                         @csrf
 
                         <div class="mb-3">
