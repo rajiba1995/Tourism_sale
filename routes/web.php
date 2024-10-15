@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Controllers\Admin\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -28,6 +29,13 @@ Route::prefix('admin')->group(function () {
         Route::put('/designation/update/{id}', [DesignationController::class, 'update'])->name('admin.designation.update');
         Route::get('/designation/delete/{id}', [DesignationController::class, 'destroy'])->name('admin.designation.delete');
         
+
+        Route::get('/employee', [EmployeeController::class, 'index'])->name('admin.employee');
+        Route::get('/employee/create', [EmployeeController::class, 'create'])->name('admin.employee.create');
+        Route::post('/employee/store', [EmployeeController::class, 'store'])->name('admin.employee.store');
+        Route::get('/employee/edit/{id}', [EmployeeController::class, 'edit'])->name('admin.employee.edit');
+        Route::put('/employee/update/{id}', [EmployeeController::class, 'update'])->name('admin.employee.update');
+        Route::get('/employee/destroy/{id}', [EmployeeController::class, 'destroy'])->name('admin.employee.destroy');
 
         // Route::get('/dashboard', function () {
         //     return view('admin.dashboard'); // Admin dashboard view
