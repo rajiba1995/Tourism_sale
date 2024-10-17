@@ -9,6 +9,10 @@ use App\Repositories\EmployeeRepositoryInterface;
 use App\Repositories\EmployeeRepository;
 use App\Repositories\HotelCategoryRepositoryInterface;
 use App\Repositories\HotelCategoryRepository;
+use App\Repositories\HotelRepositoryInterface;
+use App\Repositories\HotelRepository;
+use App\Repositories\PackageRepositoryInterface;
+use App\Repositories\PackageRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -20,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(DesignationRepositoryInterface::class, DesignationRepository::class);
         $this->app->bind(EmployeeRepositoryInterface::class, EmployeeRepository::class);
         $this->app->bind(HotelCategoryRepositoryInterface::class, HotelCategoryRepository::class);
+        $this->app->bind(HotelRepositoryInterface::class, HotelRepository::class);
+        $this->app->bind(PackageRepositoryInterface::class, PackageRepository::class);
+
 
 
     }
