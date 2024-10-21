@@ -10,15 +10,21 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h4>Create Hotel Category
-                        <a href="{{ url('admin/hotelCategory') }}" class="btn btn-danger float-end">Back</a>
+                    <h4>Create Destination
+                        <a href="{{ url('admin/destination') }}" class="btn btn-danger float-end">Back</a>
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('admin/hotelCategory/store') }}" method="POST">
+                    <form action="{{ url('admin/destination/store') }}" method="POST">
                         @csrf
 
-                       <x-input type="text" name="title" placeholder="please enter title"/>
+                        <div class="mb-3">
+                            <label for="title">Title</label>
+                            <input type="text" name="title" class="form-control" value="{{ old('title') }}" />
+                            @error('title')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
                         <div class="mb-3">
                             <label for="status">Status</label>
                             <select name="status" class="form-control">

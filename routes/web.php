@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\EmployeeController;
 use App\Http\Controllers\Admin\HotelCategoryController;
 use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\DestinationController;
 
 
 Route::get('/', function () {
@@ -57,12 +58,19 @@ Route::prefix('admin')->group(function () {
         Route::get('/hotel/destroy/{id}', [HotelController::class, 'destroy'])->name('admin.hotel.destroy');
         
         Route::get('/packages', [PackageController::class, 'index'])->name('admin.package.index');
-    Route::get('/package/create', [PackageController::class, 'create'])->name('admin.package.create');
-    Route::post('/package/store', [PackageController::class, 'store'])->name('admin.package.store');
-    Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('admin.package.edit');
-    Route::put('/package/update/{id}', [PackageController::class, 'update'])->name('admin.package.update');
-    Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('admin.package.destroy');
+        Route::get('/package/create', [PackageController::class, 'create'])->name('admin.package.create');
+        Route::post('/package/store', [PackageController::class, 'store'])->name('admin.package.store');
+        Route::get('/package/edit/{id}', [PackageController::class, 'edit'])->name('admin.package.edit');
+        Route::put('/package/update/{id}', [PackageController::class, 'update'])->name('admin.package.update');
+        Route::delete('/package/destroy/{id}', [PackageController::class, 'destroy'])->name('admin.package.destroy');
         
+
+        Route::get('/destination', [DestinationController::class, 'index'])->name('admin.destination');
+        Route::get('/destination/create', [DestinationController::class, 'create'])->name('admin.destination.create');
+        Route::post('/destination/store', [DestinationController::class, 'store'])->name('admin.destination.store');
+        Route::get('/destination/edit/{id}', [DestinationController::class, 'edit'])->name('admin.destination.edit');
+        Route::put('/destination/update/{id}', [DestinationController::class, 'update'])->name('admin.destination.update');
+        Route::get('/destination/destroy/{id}', [DestinationController::class, 'destroy'])->name('admin.destination.destroy');
         // Route::get('/dashboard', function () {
         //     return view('admin.dashboard'); // Admin dashboard view
         // })->name('admin.dashboard');
